@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Bank.API.Infrastructure.Repositories.Interfaces
+namespace SimpleBank.API.Infrastructure.Repositories.Interfaces
 {
     public interface IWithdrawRepository
     {

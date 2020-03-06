@@ -6,10 +6,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SimpleBank.API.Infrastructure.Data;
+using SimpleBank.API.Infrastructure.Repositories;
+using SimpleBank.API.Infrastructure.Repositories.Interfaces;
 
 namespace SimpleBank.API
 {
@@ -25,6 +29,16 @@ namespace SimpleBank.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IDepositRepository, DepositRepository>();
+            services.AddScoped<IWithdrawRepository, WithdrawRepository>();
+            services.AddScoped<ITransferRepository, TransferRepository>();
+
+
             services.AddControllers();
         }
 
