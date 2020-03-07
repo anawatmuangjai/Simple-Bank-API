@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SimpleBank.API</name>
+    </assembly>
+    <members>
+        <member name="M:SimpleBank.API.Controllers.AccountsController.GetAccountByIban(System.String)">
+            <summary>
+            Get individual account by IBAN
+            </summary>
+            <param name="accountIban"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SimpleBank.API.Controllers.AccountsController.CreateAccount(SimpleBank.API.Models.Dtos.AccountRequest)">
+            <summary>
+            Register new account
+            </summary>
+            <param name="accountRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SimpleBank.API.Controllers.TransactionsController.Deposit(SimpleBank.API.Models.Dtos.DepositRequest)">
+            <summary>
+            Deposit
+            </summary>
+            <param name="depositRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SimpleBank.API.Controllers.TransactionsController.Withdraw(SimpleBank.API.Models.Dtos.WithdrawRequest)">
+            <summary>
+            Withdraw
+            </summary>
+            <param name="withdrawRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SimpleBank.API.Controllers.TransactionsController.Transfer(SimpleBank.API.Models.Dtos.TransferRequest)">
+            <summary>
+            Transfer
+            </summary>
+            <param name="transferRequest"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
