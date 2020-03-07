@@ -32,6 +32,8 @@ namespace SimpleBank.API.Infrastructure.Services
         {
             var transactionsResult = new TransactionsResult
             {
+                AccountIban = depositRequest.AccountIban,
+                Amount = depositRequest.Amount,
                 Success = false,
                 ErrorMessage = string.Empty,
                 TransactionsType = "Deposit",
@@ -69,7 +71,9 @@ namespace SimpleBank.API.Infrastructure.Services
 
             await depositRepository.AddDepositAsync(deposit);
 
+            transactionsResult.Balance = account.Balance;
             transactionsResult.Success = true;
+
             return transactionsResult;
         }
 
@@ -77,6 +81,8 @@ namespace SimpleBank.API.Infrastructure.Services
         {
             var transactionsResult = new TransactionsResult
             {
+                AccountIban = withdrawRequest.AccountIban,
+                Amount = withdrawRequest.Amount,
                 Success = false,
                 ErrorMessage = string.Empty,
                 TransactionsType = "Withdraw",
@@ -117,7 +123,9 @@ namespace SimpleBank.API.Infrastructure.Services
 
             await withdrawRepository.AddWithdrawAsync(withdraw);
 
+            transactionsResult.Balance = account.Balance;
             transactionsResult.Success = true;
+
             return transactionsResult;
         }
 
@@ -125,6 +133,8 @@ namespace SimpleBank.API.Infrastructure.Services
         {
             var transactionsResult = new TransactionsResult
             {
+                AccountIban = transferRequest.FromAccountIban,
+                Amount = transferRequest.Amount,
                 Success = false,
                 ErrorMessage = string.Empty,
                 TransactionsType = "Transfer",
@@ -163,7 +173,9 @@ namespace SimpleBank.API.Infrastructure.Services
 
             await transferRepository.AddTransferAsync(transfer);
 
+            transactionsResult.Balance = accountFrom.Balance;
             transactionsResult.Success = true;
+
             return transactionsResult;
         }
 
