@@ -49,14 +49,14 @@ namespace SimpleBank.API.Infrastructure.Services
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            var userResponse = new AuthenticationResponse
+            var response = new AuthenticationResponse
             {
                 Username = user.Username,
                 Role = user.Role,
                 Token = tokenHandler.WriteToken(token)
             };
 
-            return userResponse;
+            return response;
         }
 
         public async Task<AuthenticationResponse> RegisterAsync(string username, string password)
@@ -71,13 +71,13 @@ namespace SimpleBank.API.Infrastructure.Services
             await userRepository.AddUserAsync(user);
             user.Password = "";
 
-            var userResponse = new AuthenticationResponse
+            var response = new AuthenticationResponse
             {
                 Username = user.Username,
                 Role = user.Role
             };
 
-            return userResponse;
+            return response;
         }
 
         public async Task<bool> UserExistsAsync(string username)

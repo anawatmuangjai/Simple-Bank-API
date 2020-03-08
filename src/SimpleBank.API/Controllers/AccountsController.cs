@@ -46,7 +46,7 @@ namespace SimpleBank.API.Controllers
         /// <param name="accountRequest"></param>
         /// <returns></returns>
         [HttpPost("register")]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(AccountResponse))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AccountResponse))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Authorize(Roles = "Admin")]
@@ -62,7 +62,7 @@ namespace SimpleBank.API.Controllers
             if (accountExists)
             {
                 ModelState.AddModelError("", "Account exists");
-                return StatusCode(404, ModelState);
+                return BadRequest(ModelState);
             }
 
             var accountResponse = await customerAccountsService.CreateAccountAsync(accountRequest);
