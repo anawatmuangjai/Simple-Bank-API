@@ -10,6 +10,7 @@ namespace SimpleBank.API.Controllers
     [Route("api/v{version:apiVersion}/transactions")]
     [Authorize]
     [ApiController]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public class TransactionsController : ControllerBase
     {
         private readonly ITransactionsService transactionsService;
@@ -20,13 +21,12 @@ namespace SimpleBank.API.Controllers
         }
 
         /// <summary>
-        /// Deposit
+        /// Deposit money to account
         /// </summary>
         /// <param name="depositRequest"></param>
         /// <returns></returns>
         [HttpPost("deposit")]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(TransactionsResult))]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TransactionsResult))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Deposit([FromBody] DepositRequest depositRequest)
         {
@@ -41,13 +41,12 @@ namespace SimpleBank.API.Controllers
         }
 
         /// <summary>
-        /// Withdraw
+        /// Withdraw money from account
         /// </summary>
         /// <param name="withdrawRequest"></param>
         /// <returns></returns>
         [HttpPost("withdraw")]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(TransactionsResult))]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TransactionsResult))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Withdraw([FromBody] WithdrawRequest withdrawRequest)
         {
@@ -62,13 +61,12 @@ namespace SimpleBank.API.Controllers
         }
 
         /// <summary>
-        /// Transfer
+        /// Transfer from one account to another
         /// </summary>
         /// <param name="transferRequest"></param>
         /// <returns></returns>
         [HttpPost("transfer")]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(TransactionsResult))]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TransactionsResult))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Transfer([FromBody] TransferRequest transferRequest)
         {

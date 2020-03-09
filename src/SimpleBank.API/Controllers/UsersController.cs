@@ -20,6 +20,11 @@ namespace SimpleBank.API.Controllers
             this.userService = userService;
         }
 
+        /// <summary>
+        /// Authenticate to get token
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpPost("authenticate")]
         public async Task<IActionResult> Authenticate([FromBody] AuthenticationRequest request)
@@ -34,6 +39,11 @@ namespace SimpleBank.API.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Create new user
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] AuthenticationRequest request)

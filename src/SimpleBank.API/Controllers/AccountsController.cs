@@ -47,7 +47,6 @@ namespace SimpleBank.API.Controllers
         /// <returns></returns>
         [HttpPost("register")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AccountResponse))]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateAccount([FromBody] AccountRequest accountRequest)

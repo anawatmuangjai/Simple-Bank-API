@@ -20,23 +20,37 @@
         </member>
         <member name="M:SimpleBank.API.Controllers.TransactionsController.Deposit(SimpleBank.API.Models.Dtos.DepositRequest)">
             <summary>
-            Deposit
+            Deposit money to account
             </summary>
             <param name="depositRequest"></param>
             <returns></returns>
         </member>
         <member name="M:SimpleBank.API.Controllers.TransactionsController.Withdraw(SimpleBank.API.Models.Dtos.WithdrawRequest)">
             <summary>
-            Withdraw
+            Withdraw money from account
             </summary>
             <param name="withdrawRequest"></param>
             <returns></returns>
         </member>
         <member name="M:SimpleBank.API.Controllers.TransactionsController.Transfer(SimpleBank.API.Models.Dtos.TransferRequest)">
             <summary>
-            Transfer
+            Transfer from one account to another
             </summary>
             <param name="transferRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SimpleBank.API.Controllers.UsersController.Authenticate(SimpleBank.API.Models.Dtos.AuthenticationRequest)">
+            <summary>
+            Authenticate to get token
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SimpleBank.API.Controllers.UsersController.Register(SimpleBank.API.Models.Dtos.AuthenticationRequest)">
+            <summary>
+            Create new user
+            </summary>
+            <param name="request"></param>
             <returns></returns>
         </member>
     </members>
